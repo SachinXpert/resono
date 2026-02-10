@@ -61,7 +61,7 @@ class LatestRingtonesList extends ConsumerWidget {
               loading: () => const Center(child: CircularProgressIndicator()),
               error: (err, stack) => Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text("Error: $err", style: const TextStyle(color: Colors.red)),
+                child: Text(l10n.errorGeneric(err.toString()), style: const TextStyle(color: Colors.red)),
               ),
               data: (items) {
                 if (items.isEmpty) {

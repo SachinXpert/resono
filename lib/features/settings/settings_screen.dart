@@ -87,21 +87,21 @@ class SettingsScreen extends ConsumerWidget {
                 SizedBox(
                   width: double.infinity,
                   child: SegmentedButton<ThemeMode>(
-                    segments: const [
+                    segments: [
                       ButtonSegment<ThemeMode>(
                         value: ThemeMode.light,
-                        label: Text('Light'),
-                        icon: Icon(Icons.light_mode_outlined),
+                        label: Text(l10n.themeLight),
+                        icon: const Icon(Icons.light_mode_outlined),
                       ),
                       ButtonSegment<ThemeMode>(
                         value: ThemeMode.dark,
-                        label: Text('Dark'),
-                        icon: Icon(Icons.dark_mode_outlined),
+                        label: Text(l10n.themeDark),
+                        icon: const Icon(Icons.dark_mode_outlined),
                       ),
                       ButtonSegment<ThemeMode>(
                         value: ThemeMode.system,
-                        label: Text('System'),
-                        icon: Icon(Icons.settings_suggest_outlined),
+                        label: Text(l10n.themeSystem),
+                        icon: const Icon(Icons.settings_suggest_outlined),
                       ),
                     ],
                     selected: {themeState.themeMode},
@@ -116,7 +116,7 @@ class SettingsScreen extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.color_lens_outlined),
             title: Text(l10n.dynamicColor),
-            subtitle: const Text('Match system wallpaper'),
+            subtitle: Text(l10n.themeMatchSystem),
             trailing: Switch(
               value: themeState.useDynamicColor, 
               onChanged: (val) {
@@ -132,7 +132,7 @@ class SettingsScreen extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.music_note_outlined),
             title: Text(l10n.ringtoneEditor),
-            subtitle: const Text('Create custom ringtones'),
+            subtitle: Text(l10n.themeCustomRingtones),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
             onTap: () {
               context.push('/editor');
@@ -141,7 +141,7 @@ class SettingsScreen extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.request_page_outlined),
             title: Text(l10n.requestRingtone),
-            subtitle: const Text("Can't find it? Ask us!"),
+            subtitle: Text(l10n.cantFindAsk),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
             onTap: () async {
                final Uri emailLaunchUri = Uri(
@@ -153,7 +153,7 @@ class SettingsScreen extends ConsumerWidget {
                  await launchUrl(emailLaunchUri);
                } catch (e) {
                  if (context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Could not launch email app")));
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l10n.couldNotLaunchEmail)));
                  }
                }
             },
@@ -163,47 +163,46 @@ class SettingsScreen extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.language_outlined),
             title: Text(l10n.language),
-            trailing: DropdownButton<Locale>(
+            trailing: DropdownButton<Locale?>(
               value: currentLocale,
               menuMaxHeight: 300, // Constrain height
               underline: const SizedBox(),
-              items: const [
-                 DropdownMenuItem(value: Locale('en'), child: Text('English')),
-                 DropdownMenuItem(value: Locale('es'), child: Text('Español')),
-                 DropdownMenuItem(value: Locale('hi'), child: Text('हिन्दी')),
-                 DropdownMenuItem(value: Locale('fr'), child: Text('Français')),
-                 DropdownMenuItem(value: Locale('de'), child: Text('Deutsch')),
-                 DropdownMenuItem(value: Locale('it'), child: Text('Italiano')),
-                 DropdownMenuItem(value: Locale('pt'), child: Text('Português')),
-                 DropdownMenuItem(value: Locale('ru'), child: Text('Русский')),
-                 DropdownMenuItem(value: Locale('zh'), child: Text('中文')),
-                 DropdownMenuItem(value: Locale('ja'), child: Text('日本語')),
-                 DropdownMenuItem(value: Locale('ko'), child: Text('한국어')),
-                 DropdownMenuItem(value: Locale('ar'), child: Text('العربية')),
-                 DropdownMenuItem(value: Locale('tr'), child: Text('Türkçe')),
-                 DropdownMenuItem(value: Locale('vi'), child: Text('Tiếng Việt')),
-                 DropdownMenuItem(value: Locale('th'), child: Text('ไทย')),
-                 DropdownMenuItem(value: Locale('id'), child: Text('Bahasa Indonesia')),
-                 DropdownMenuItem(value: Locale('nl'), child: Text('Nederlands')),
-                 DropdownMenuItem(value: Locale('pl'), child: Text('Polski')),
-                 DropdownMenuItem(value: Locale('uk'), child: Text('Українська')),
-                 DropdownMenuItem(value: Locale('sv'), child: Text('Svenska')),
-                 DropdownMenuItem(value: Locale('cs'), child: Text('Čeština')),
-                 DropdownMenuItem(value: Locale('el'), child: Text('Ελληνικά')),
-                 DropdownMenuItem(value: Locale('ro'), child: Text('Română')),
-                 DropdownMenuItem(value: Locale('hu'), child: Text('Magyar')),
-                 DropdownMenuItem(value: Locale('da'), child: Text('Dansk')),
-                 DropdownMenuItem(value: Locale('fi'), child: Text('Suomi')),
-                 DropdownMenuItem(value: Locale('no'), child: Text('Norsk')),
-                 DropdownMenuItem(value: Locale('he'), child: Text('עברית')),
-                 DropdownMenuItem(value: Locale('ms'), child: Text('Bahasa Melayu')),
-                 DropdownMenuItem(value: Locale('bn'), child: Text('বাংলা')),
-                 DropdownMenuItem(value: Locale('ur'), child: Text('اردو')),
+              items: [
+                 DropdownMenuItem(value: null, child: Text(l10n.themeSystem)),
+                 DropdownMenuItem(value: const Locale('en'), child: Text(l10n.languageEnglish)),
+                 DropdownMenuItem(value: const Locale('es'), child: Text(l10n.languageSpanish)),
+                 DropdownMenuItem(value: const Locale('hi'), child: Text(l10n.languageHindi)),
+                 DropdownMenuItem(value: const Locale('fr'), child: Text(l10n.languageFrench)),
+                 DropdownMenuItem(value: const Locale('de'), child: Text(l10n.languageGerman)),
+                 DropdownMenuItem(value: const Locale('it'), child: Text(l10n.languageItalian)),
+                 DropdownMenuItem(value: const Locale('pt'), child: Text(l10n.languagePortuguese)),
+                 DropdownMenuItem(value: const Locale('ru'), child: Text(l10n.languageRussian)),
+                 DropdownMenuItem(value: const Locale('zh'), child: Text(l10n.languageChinese)),
+                 DropdownMenuItem(value: const Locale('ja'), child: Text(l10n.languageJapanese)),
+                 DropdownMenuItem(value: const Locale('ko'), child: Text(l10n.languageKorean)),
+                 DropdownMenuItem(value: const Locale('ar'), child: Text(l10n.languageArabic)),
+                 DropdownMenuItem(value: const Locale('tr'), child: Text(l10n.languageTurkish)),
+                 DropdownMenuItem(value: const Locale('vi'), child: Text(l10n.languageVietnamese)),
+                 DropdownMenuItem(value: const Locale('th'), child: Text(l10n.languageThai)),
+                 DropdownMenuItem(value: const Locale('id'), child: Text(l10n.languageIndonesian)),
+                 DropdownMenuItem(value: const Locale('nl'), child: Text(l10n.languageDutch)),
+                 DropdownMenuItem(value: const Locale('pl'), child: Text(l10n.languagePolish)),
+                 DropdownMenuItem(value: const Locale('uk'), child: Text(l10n.languageUkrainian)),
+                 DropdownMenuItem(value: const Locale('sv'), child: Text(l10n.languageSwedish)),
+                 DropdownMenuItem(value: const Locale('cs'), child: Text(l10n.languageCzech)),
+                 DropdownMenuItem(value: const Locale('el'), child: Text(l10n.languageGreek)),
+                 DropdownMenuItem(value: const Locale('ro'), child: Text(l10n.languageRomanian)),
+                 DropdownMenuItem(value: const Locale('hu'), child: Text(l10n.languageHungarian)),
+                 DropdownMenuItem(value: const Locale('da'), child: Text(l10n.languageDanish)),
+                 DropdownMenuItem(value: const Locale('fi'), child: Text(l10n.languageFinnish)),
+                 DropdownMenuItem(value: const Locale('no'), child: Text(l10n.languageNorwegian)),
+                 DropdownMenuItem(value: const Locale('he'), child: Text(l10n.languageHebrew)),
+                 DropdownMenuItem(value: const Locale('ms'), child: Text(l10n.languageMalay)),
+                 DropdownMenuItem(value: const Locale('bn'), child: Text(l10n.languageBengali)),
+                 DropdownMenuItem(value: const Locale('ur'), child: Text(l10n.languageUrdu)),
               ],
               onChanged: (Locale? newLocale) {
-                 if (newLocale != null) {
-                    ref.read(localeProvider.notifier).setLocale(newLocale);
-                 }
+                 ref.read(localeProvider.notifier).setLocale(newLocale);
               },
             ),
           ),
@@ -214,7 +213,7 @@ class SettingsScreen extends ConsumerWidget {
              onTap: () async {
                 // Clear Cache Logic
                 try {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Clearing cache...')));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${l10n.clearCache}...')));
                   // Simulate or minimal clear
                   // In a real app with cached_network_image or similar, we'd clear that.
                   // For now, let's just show success after a fake delay as we rely on system cache mostly
@@ -241,25 +240,23 @@ class SettingsScreen extends ConsumerWidget {
                  await launchUrl(url, mode: LaunchMode.externalApplication);
                } catch (e) {
                  if (context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Could not open Privacy Policy")));
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l10n.couldNotOpenPrivacy)));
                  }
                }
             },
           ),
           ListTile(
             leading: const Icon(Icons.copyright_outlined),
-            title: const Text("Copyright Notice"),
-            subtitle: const Text("Content ownership & rights"),
+            title: Text(l10n.copyrightNotice),
+            subtitle: Text(l10n.copyrightRights),
             onTap: () {
                showDialog(
                  context: context, 
                  builder: (c) => AlertDialog(
-                    title: const Text("Copyright Disclaimer"),
-                    content: const SingleChildScrollView(
+                    title: Text(l10n.copyrightDisclaimer),
+                    content: SingleChildScrollView(
                       child: Text(
-                        "All ringtones, audio tracks, and sound effects available in this application are 100% original compositions produced and owned by the developer.\n\n"
-                        "These works are protected by copyright law. Unauthorized reproduction, redistribution, or commercial use of this content is strictly prohibited.\n\n"
-                        "© 2026 Resono. All Rights Reserved."
+                        l10n.copyrightContent
                       ),
                     ),
                     actions: [

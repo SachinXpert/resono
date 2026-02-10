@@ -193,7 +193,7 @@ class _EditorScreenState extends ConsumerState<EditorScreen> {
                icon: _isExporting 
                    ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
                    : const Icon(Icons.save_alt, size: 16),
-               label: Text(_isExporting ? "SVG..." : l10n.editorExport),
+               label: Text(_isExporting ? l10n.labelSaving : l10n.editorExport),
                style: FilledButton.styleFrom(
                  backgroundColor: kNeonPurple,
                  foregroundColor: Colors.white,
@@ -271,7 +271,7 @@ class _EditorScreenState extends ConsumerState<EditorScreen> {
                            const SizedBox(height: 30),
                            
                            // 2. MAIN SEEKER (Waveform Area)
-                           Text("PREVIEW & SEEK", style: TextStyle(color: colorScheme.onSurfaceVariant.withOpacity(0.5), fontSize: 10, letterSpacing: 1.5)),
+                           Text(l10n.previewSeek, style: TextStyle(color: colorScheme.onSurfaceVariant.withOpacity(0.5), fontSize: 10, letterSpacing: 1.5)),
                            const SizedBox(height: 10),
                            SizedBox(
                              height: 120, // Tall waveform area
@@ -292,7 +292,7 @@ class _EditorScreenState extends ConsumerState<EditorScreen> {
                            const SizedBox(height: 40),
 
                            // 3. TRIM DECK (Dedicated Slider)
-                           Text("TRIM RANGE", style: TextStyle(color: colorScheme.onSurfaceVariant.withOpacity(0.5), fontSize: 10, letterSpacing: 1.5)),
+                           Text(l10n.trimRange, style: TextStyle(color: colorScheme.onSurfaceVariant.withOpacity(0.5), fontSize: 10, letterSpacing: 1.5)),
                            const SizedBox(height: 10),
                            TrimEditor(
                               duration: _maxDuration > 0 ? _maxDuration : 30.0,
@@ -531,7 +531,7 @@ class _EditorScreenState extends ConsumerState<EditorScreen> {
                   );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("${l10n.msgExportSuccess}, but failed to save to Music folder.")),
+                    SnackBar(content: Text(l10n.failedToSaveMusic)),
                   );
                 }
               }
@@ -539,7 +539,7 @@ class _EditorScreenState extends ConsumerState<EditorScreen> {
       } else {
          if (mounted) {
            ScaffoldMessenger.of(context).showSnackBar(
-             SnackBar(content: Text("${l10n.msgExportFailed}! Native trim failed.")),
+             SnackBar(content: Text(l10n.nativeTrimFailed)),
            );
          }
       }
@@ -547,7 +547,7 @@ class _EditorScreenState extends ConsumerState<EditorScreen> {
     } catch (e) {
        debugPrint("Export Error: $e");
        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error: $e")));
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l10n.errorGeneric(e.toString()))));
        }
     } finally {
       if (mounted) setState(() => _isExporting = false);
@@ -653,7 +653,7 @@ class _EditorScreenState extends ConsumerState<EditorScreen> {
     } catch (e) {
       if (mounted) {
         Navigator.pop(context);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error: $e")));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l10n.errorGeneric(e.toString()))));
       }
     }
   }

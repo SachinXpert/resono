@@ -62,7 +62,7 @@ class _PremiumContentScreenState extends ConsumerState<PremiumContentScreen> wit
 
     return ringtonesAsync.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (err, stack) => Center(child: Text("Error: $err")),
+      error: (err, stack) => Center(child: Text(l10n.errorGeneric(err.toString()))),
       data: (items) {
           // Filter for premium items
           final premiumItems = items.where((item) => item['isPremium'] == true || item['isPremium'].toString() == 'true').toList();
@@ -99,7 +99,7 @@ class _PremiumContentScreenState extends ConsumerState<PremiumContentScreen> wit
 
       return songsAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (err, stack) => Center(child: Text("Error: $err")),
+          error: (err, stack) => Center(child: Text(l10n.errorGeneric(err.toString()))),
           data: (songs) {
               // Filter for premium songs
           final premiumSongs = songs.where((song) => song['isPremium'] == true || song['isPremium'].toString() == 'true').toList();

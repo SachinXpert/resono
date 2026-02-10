@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ringo_ringtones/core/services/notification_service.dart';
+import 'package:ringo_ringtones/l10n/app_localizations.dart';
 
 class NotificationScreen extends ConsumerStatefulWidget {
   const NotificationScreen({super.key});
@@ -60,7 +61,7 @@ class _NotificationScreenState extends ConsumerState<NotificationScreen> {
                     children: [
                       Icon(Icons.notifications_off_outlined, size: 80, color: colorScheme.outline),
                       const SizedBox(height: 16),
-                      Text("No notifications yet", style: TextStyle(color: colorScheme.onSurfaceVariant)),
+                       Text(AppLocalizations.of(context)!.noNotifications, style: TextStyle(color: colorScheme.onSurfaceVariant)),
                     ],
                   ),
                 )

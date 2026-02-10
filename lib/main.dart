@@ -92,6 +92,7 @@ class _AppBootstrapperState extends State<AppBootstrapper> {
             if (_prefs != null) ...[
                ringtoneRepositoryProvider.overrideWithValue(RingtoneRepository(_prefs!)),
                themeProvider.overrideWith((ref) => ThemeNotifier(_prefs!)),
+               localeProvider.overrideWith((ref) => LocaleNotifier(_prefs!)),
             ]
           ],
           child: const RingoApp(),
@@ -106,62 +107,106 @@ class _AppBootstrapperState extends State<AppBootstrapper> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.music_note_rounded,
-              size: 100,
-              color: Colors.deepPurpleAccent, // Hardcoded color for bootstrapper
-            ).animate()
-             .fade(duration: 600.ms)
-             .scale(delay: 200.ms, duration: 600.ms, curve: Curves.easeOutBack)
-             .shimmer(delay: 1000.ms, duration: 1500.ms, color: Colors.white.withOpacity(0.5)),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('es'), // Spanish
+        Locale('hi'), // Hindi
+        Locale('fr'), // French
+        Locale('de'), // German
+        Locale('it'), // Italian
+        Locale('pt'), // Portuguese
+        Locale('ru'), // Russian
+        Locale('zh'), // Chinese
+        Locale('ja'), // Japanese
+        Locale('ko'), // Korean
+        Locale('ar'), // Arabic
+        Locale('tr'), // Turkish
+        Locale('vi'), // Vietnamese
+        Locale('th'), // Thai
+        Locale('id'), // Indonesian
+        Locale('nl'), // Dutch
+        Locale('pl'), // Polish
+        Locale('uk'), // Ukrainian
+        Locale('sv'), // Swedish
+        Locale('cs'), // Czech
+        Locale('el'), // Greek
+        Locale('ro'), // Romanian
+        Locale('hu'), // Hungarian
+        Locale('da'), // Danish
+        Locale('fi'), // Finnish
+        Locale('no'), // Norwegian
+        Locale('he'), // Hebrew
+        Locale('ms'), // Malay
+        Locale('bn'), // Bengali
+        Locale('ur'), // Urdu
+      ],
+      home: Builder(
+        builder: (context) {
+          final l10n = AppLocalizations.of(context);
+          return Scaffold(
+            backgroundColor: Colors.black,
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.music_note_rounded,
+                    size: 100,
+                    color: Colors.deepPurpleAccent, // Hardcoded color for bootstrapper
+                  ).animate()
+                  .fade(duration: 600.ms)
+                  .scale(delay: 200.ms, duration: 600.ms, curve: Curves.easeOutBack)
+                  .shimmer(delay: 1000.ms, duration: 1500.ms, color: Colors.white.withOpacity(0.5)),
 
-            const SizedBox(height: 24),
+                  const SizedBox(height: 24),
 
-            Text(
-              'Ringo Ringtones',
-              style: const TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                letterSpacing: 1.2,
-                fontFamily: 'Roboto', // Default fallback
-                decoration: TextDecoration.none,
+                  Text(
+                    l10n?.appTitle ?? 'Ringo Ringtones',
+                    style: const TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 1.2,
+                      fontFamily: 'Roboto', // Default fallback
+                      decoration: TextDecoration.none,
+                    ),
+                  ).animate()
+                  .fadeIn(delay: 400.ms, duration: 600.ms)
+                  .moveY(begin: 20, end: 0, delay: 400.ms, duration: 600.ms),
+                  
+                  const SizedBox(height: 12),
+                  
+                  Text(
+                    l10n?.appSubtitle ?? 'Premium Ringtones & Sounds',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.white70,
+                      decoration: TextDecoration.none,
+                    ),
+                  ).animate()
+                  .fadeIn(delay: 800.ms, duration: 600.ms),
+                  
+                  const SizedBox(height: 48),
+                  
+                  const SizedBox(
+                    width: 24,
+                    height: 24,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white30),
+                    ),
+                  ).animate().fadeIn(delay: 1500.ms),
+                ],
               ),
-            ).animate()
-             .fadeIn(delay: 400.ms, duration: 600.ms)
-             .moveY(begin: 20, end: 0, delay: 400.ms, duration: 600.ms),
-             
-             const SizedBox(height: 12),
-             
-             Text(
-               'Premium Ringtones & Sounds',
-               style: const TextStyle(
-                 fontSize: 16,
-                 color: Colors.white70,
-                 decoration: TextDecoration.none,
-               ),
-             ).animate()
-             .fadeIn(delay: 800.ms, duration: 600.ms),
-             
-             const SizedBox(height: 48),
-             
-             const SizedBox(
-               width: 24,
-               height: 24,
-               child: CircularProgressIndicator(
-                 strokeWidth: 2,
-                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white30),
-               ),
-             ).animate().fadeIn(delay: 1500.ms),
-          ],
-        ),
-      ),
+            ),
+          );
+        }
       ),
     );
   }

@@ -647,6 +647,336 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Show Less'**
   String get showLess;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get themeSystem;
+
+  /// No description provided for @themeMatchSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'Match system wallpaper'**
+  String get themeMatchSystem;
+
+  /// No description provided for @themeCustomRingtones.
+  ///
+  /// In en, this message translates to:
+  /// **'Create custom ringtones'**
+  String get themeCustomRingtones;
+
+  /// No description provided for @cantFindAsk.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t find it? Ask us!'**
+  String get cantFindAsk;
+
+  /// No description provided for @couldNotLaunchEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not launch email app'**
+  String get couldNotLaunchEmail;
+
+  /// No description provided for @couldNotOpenPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open Privacy Policy'**
+  String get couldNotOpenPrivacy;
+
+  /// No description provided for @copyrightNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Copyright Notice'**
+  String get copyrightNotice;
+
+  /// No description provided for @copyrightRights.
+  ///
+  /// In en, this message translates to:
+  /// **'Content ownership & rights'**
+  String get copyrightRights;
+
+  /// No description provided for @copyrightDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Copyright Disclaimer'**
+  String get copyrightDisclaimer;
+
+  /// No description provided for @errorGeneric.
+  ///
+  /// In en, this message translates to:
+  /// **'Error: {error}'**
+  String errorGeneric(String error);
+
+  /// No description provided for @noNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'No notifications yet'**
+  String get noNotifications;
+
+  /// No description provided for @noRingtoneData.
+  ///
+  /// In en, this message translates to:
+  /// **'No ringtone data provided'**
+  String get noRingtoneData;
+
+  /// No description provided for @adNotReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Ad not ready. Please try again in a moment.'**
+  String get adNotReady;
+
+  /// No description provided for @unlockWithAd.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock with an ad to play this ringtone'**
+  String get unlockWithAd;
+
+  /// No description provided for @previewSeek.
+  ///
+  /// In en, this message translates to:
+  /// **'PREVIEW & SEEK'**
+  String get previewSeek;
+
+  /// No description provided for @trimRange.
+  ///
+  /// In en, this message translates to:
+  /// **'TRIM RANGE'**
+  String get trimRange;
+
+  /// No description provided for @failedToSaveMusic.
+  ///
+  /// In en, this message translates to:
+  /// **'Exported successfully, but failed to save to Music folder.'**
+  String get failedToSaveMusic;
+
+  /// No description provided for @nativeTrimFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Export failed! Native trim failed.'**
+  String get nativeTrimFailed;
+
+  /// No description provided for @copyrightContent.
+  ///
+  /// In en, this message translates to:
+  /// **'All ringtones, audio tracks, and sound effects available in this application are 100% original compositions produced and owned by the developer.\n\nThese works are protected by copyright law. Unauthorized reproduction, redistribution, or commercial use of this content is strictly prohibited.\n\n© 2026 Resono. All Rights Reserved.'**
+  String get copyrightContent;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// No description provided for @languageSpanish.
+  ///
+  /// In en, this message translates to:
+  /// **'Español'**
+  String get languageSpanish;
+
+  /// No description provided for @languageHindi.
+  ///
+  /// In en, this message translates to:
+  /// **'हिन्दी'**
+  String get languageHindi;
+
+  /// No description provided for @languageFrench.
+  ///
+  /// In en, this message translates to:
+  /// **'Français'**
+  String get languageFrench;
+
+  /// No description provided for @languageGerman.
+  ///
+  /// In en, this message translates to:
+  /// **'Deutsch'**
+  String get languageGerman;
+
+  /// No description provided for @languageItalian.
+  ///
+  /// In en, this message translates to:
+  /// **'Italiano'**
+  String get languageItalian;
+
+  /// No description provided for @languagePortuguese.
+  ///
+  /// In en, this message translates to:
+  /// **'Português'**
+  String get languagePortuguese;
+
+  /// No description provided for @languageRussian.
+  ///
+  /// In en, this message translates to:
+  /// **'Русский'**
+  String get languageRussian;
+
+  /// No description provided for @languageChinese.
+  ///
+  /// In en, this message translates to:
+  /// **'中文'**
+  String get languageChinese;
+
+  /// No description provided for @languageJapanese.
+  ///
+  /// In en, this message translates to:
+  /// **'日本語'**
+  String get languageJapanese;
+
+  /// No description provided for @languageKorean.
+  ///
+  /// In en, this message translates to:
+  /// **'한국어'**
+  String get languageKorean;
+
+  /// No description provided for @languageArabic.
+  ///
+  /// In en, this message translates to:
+  /// **'العربية'**
+  String get languageArabic;
+
+  /// No description provided for @languageTurkish.
+  ///
+  /// In en, this message translates to:
+  /// **'Türkçe'**
+  String get languageTurkish;
+
+  /// No description provided for @languageVietnamese.
+  ///
+  /// In en, this message translates to:
+  /// **'Tiếng Việt'**
+  String get languageVietnamese;
+
+  /// No description provided for @languageThai.
+  ///
+  /// In en, this message translates to:
+  /// **'ไทย'**
+  String get languageThai;
+
+  /// No description provided for @languageIndonesian.
+  ///
+  /// In en, this message translates to:
+  /// **'Bahasa Indonesia'**
+  String get languageIndonesian;
+
+  /// No description provided for @languageDutch.
+  ///
+  /// In en, this message translates to:
+  /// **'Nederlands'**
+  String get languageDutch;
+
+  /// No description provided for @languagePolish.
+  ///
+  /// In en, this message translates to:
+  /// **'Polski'**
+  String get languagePolish;
+
+  /// No description provided for @languageUkrainian.
+  ///
+  /// In en, this message translates to:
+  /// **'Українська'**
+  String get languageUkrainian;
+
+  /// No description provided for @languageSwedish.
+  ///
+  /// In en, this message translates to:
+  /// **'Svenska'**
+  String get languageSwedish;
+
+  /// No description provided for @languageCzech.
+  ///
+  /// In en, this message translates to:
+  /// **'Čeština'**
+  String get languageCzech;
+
+  /// No description provided for @languageGreek.
+  ///
+  /// In en, this message translates to:
+  /// **'Ελληνικά'**
+  String get languageGreek;
+
+  /// No description provided for @languageRomanian.
+  ///
+  /// In en, this message translates to:
+  /// **'Română'**
+  String get languageRomanian;
+
+  /// No description provided for @languageHungarian.
+  ///
+  /// In en, this message translates to:
+  /// **'Magyar'**
+  String get languageHungarian;
+
+  /// No description provided for @languageDanish.
+  ///
+  /// In en, this message translates to:
+  /// **'Dansk'**
+  String get languageDanish;
+
+  /// No description provided for @languageFinnish.
+  ///
+  /// In en, this message translates to:
+  /// **'Suomi'**
+  String get languageFinnish;
+
+  /// No description provided for @languageNorwegian.
+  ///
+  /// In en, this message translates to:
+  /// **'Norsk'**
+  String get languageNorwegian;
+
+  /// No description provided for @languageHebrew.
+  ///
+  /// In en, this message translates to:
+  /// **'עברית'**
+  String get languageHebrew;
+
+  /// No description provided for @languageMalay.
+  ///
+  /// In en, this message translates to:
+  /// **'Bahasa Melayu'**
+  String get languageMalay;
+
+  /// No description provided for @languageBengali.
+  ///
+  /// In en, this message translates to:
+  /// **'বাংলা'**
+  String get languageBengali;
+
+  /// No description provided for @languageUrdu.
+  ///
+  /// In en, this message translates to:
+  /// **'اردو'**
+  String get languageUrdu;
+
+  /// No description provided for @labelSaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving...'**
+  String get labelSaving;
+
+  /// No description provided for @appSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Ringtones & Sounds'**
+  String get appSubtitle;
+
+  /// No description provided for @couldNotOpenLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open link. Please Ensure you have a browser or the app installed.'**
+  String get couldNotOpenLink;
 }
 
 class _AppLocalizationsDelegate

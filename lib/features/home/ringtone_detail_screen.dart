@@ -199,7 +199,7 @@ class _RingtoneDetailScreenState extends ConsumerState<RingtoneDetailScreen> {
     if (ringtone == null) {
       return Scaffold(
         appBar: AppBar(),
-        body: const Center(child: Text("No ringtone data provided")),
+        body: Center(child: Text(AppLocalizations.of(context)!.noRingtoneData)),
       );
     }
 
@@ -315,7 +315,7 @@ class _RingtoneDetailScreenState extends ConsumerState<RingtoneDetailScreen> {
                                       },
                                       onAdFailed: () {
                                         ScaffoldMessenger.of(context).showSnackBar(
-                                          const SnackBar(content: Text("Ad not ready. Please try again in a moment.")),
+                                          SnackBar(content: Text(l10n.adNotReady)),
                                         );
                                       },
                                     );
@@ -624,7 +624,7 @@ class _RingtoneDetailScreenState extends ConsumerState<RingtoneDetailScreen> {
        audioService.togglePlayPause();
      } else {
        ScaffoldMessenger.of(context).showSnackBar(
-         const SnackBar(content: Text("Unlock with an ad to play this ringtone")),
+         SnackBar(content: Text(AppLocalizations.of(context)!.unlockWithAd)),
        );
      }
   }
@@ -680,7 +680,7 @@ class _RingtoneDetailScreenState extends ConsumerState<RingtoneDetailScreen> {
            }
          }
       } catch (e) {
-         if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error: $e")));
+         if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l10n.errorGeneric(e.toString()))));
       }
   }
 
@@ -714,7 +714,7 @@ class _RingtoneDetailScreenState extends ConsumerState<RingtoneDetailScreen> {
        } catch (e) {
           if (context.mounted) {
               Navigator.of(context, rootNavigator: true).pop();
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error: $e")));
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l10n.errorGeneric(e.toString()))));
           }
        }
   }

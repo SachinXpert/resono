@@ -2,26 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final localeProvider = StateNotifierProvider<LocaleNotifier, Locale>((ref) {
-  return LocaleNotifier();
+final localeProvider = StateNotifierProvider<LocaleNotifier, Locale?>((ref) {
+  throw UnimplementedError('Initialize with override');
 });
 
-class LocaleNotifier extends StateNotifier<Locale> {
-  LocaleNotifier() : super(const Locale('en')) {
-    _loadLocale();
+class LocaleNotifier extends StateNotifier<Locale?> {
+  final SharedPreferences _prefs;
+
+  LocaleNotifier(this._prefs) : super(null) {
+    _initLocale();
   }
 
-  Future<void> _loadLocale() async {
-    final prefs = await SharedPreferences.getInstance();
-    final String? languageCode = prefs.getString('language_code');
+  void _initLocale() {
+    final String? languageCode = _prefs.getString('language_code');
     if (languageCode != null) {
       state = Locale(languageCode);
     }
+    // If null, state remains null (System default)
   }
 
-  Future<void> setLocale(Locale locale) async {
+  Future<void> setLocale(Locale? locale) async {
     state = locale;
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('language_code', locale.languageCode);
+    if (locale != null) {
+      await _prefs.setString('language_code', locale.languageCode);
+    } else {
+      await _prefs.remove('language_code');
+    }
   }
 }

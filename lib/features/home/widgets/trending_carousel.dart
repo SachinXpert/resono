@@ -35,7 +35,7 @@ class _TrendingCarouselState extends ConsumerState<TrendingCarousel> {
               error: (err, stack) => Container(
                 height: 140,
                 alignment: Alignment.center,
-                child: Text("Error: $err", style: const TextStyle(color: Colors.red)),
+                child: Text(l10n.errorGeneric(err.toString()), style: const TextStyle(color: Colors.red)),
               ),
               data: (items) {
                 if (items.isEmpty) {

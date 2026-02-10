@@ -187,7 +187,7 @@ class AboutUsScreen extends StatelessWidget {
          if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
             if (context.mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Could not open link. Please Ensure you have a browser or the app installed.')),
+                SnackBar(content: Text(AppLocalizations.of(context)!.couldNotOpenLink)),
               );
             }
          }
@@ -195,7 +195,7 @@ class AboutUsScreen extends StatelessWidget {
          debugPrint("Could not launch $url: $e");
          if (context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Error: $e')),
+              SnackBar(content: Text(AppLocalizations.of(context)!.errorGeneric(e.toString()))),
             );
          }
        }
