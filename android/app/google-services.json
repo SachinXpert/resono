@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "761104377662",
+    "project_id": "resono-eb3cb",
+    "storage_bucket": "resono-eb3cb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761104377662:android:d8d87d6ce79c13e721ee6f",
+        "android_client_info": {
+          "package_name": "com.dd.resono"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf37-djVIiS1Im2pE84SQT7HzkNgjo7jQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

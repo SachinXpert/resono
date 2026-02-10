@@ -1,0 +1,87 @@
+name: ringo_ringtones
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.0
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+  # State Management
+  flutter_riverpod: ^2.4.9
+  
+  # Navigation
+  go_router: ^13.0.1
+  
+  # Audio
+  just_audio: ^0.9.36
+  just_audio_background: ^0.0.1-beta.10
+  audio_waveforms: ^1.0.4
+  # Using min-gpl to avoid licensing issues for standard app, or full-gpl if needed later. 
+  # For now, audio processing. Note: ffmpeg_kit can be large.
+
+  # Firebase
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.13.6
+  
+  # UI & Theming
+  dynamic_color: ^1.6.8
+  google_fonts: ^6.1.0
+  flutter_animate: ^4.5.0
+  carousel_slider: ^5.0.0
+  # System
+  path_provider: ^2.1.1
+  permission_handler: ^11.3.0
+  shared_preferences: ^2.2.2
+  file_picker: ^10.3.8
+  dio: ^5.9.0
+  flutter_contacts: ^1.1.9+2
+  firebase_messaging: ^14.7.10
+  url_launcher: ^6.2.2
+  animations: ^2.1.1
+  google_mobile_ads: ^7.0.0
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  generate: true
